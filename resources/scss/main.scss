@@ -1,0 +1,247 @@
+@use "sass:color";
+
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$background-color: #16645c;
+$foreground-color: #fff;
+$link-color: blue;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 5rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1500px;
+  padding: 0 1rem;
+  width: 100%;
+  margin: auto;
+}
+
+.header {
+  background: $background-color;
+  padding: 0.5rem 0;
+
+  &__logo {
+    color: $foreground-color;
+    font-size: 24px;
+    font-family: "Bitcount Single", system-ui;
+  }
+}
+
+.footer {
+  background: color.scale($background-color, $lightness: -10%);
+  padding: 16rem 0 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__copyright {
+    color: $foreground-color;
+    font-family: "Bitcount Single", system-ui;
+  }
+}
+
+.listing {
+  margin-bottom: 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  &__action {
+    color: $link-color;
+    font-size: 1rem;
+    border-bottom: 1px solid $link-color;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1rem;
+  }
+}
+
+.card {
+  &__image {
+    width: 100%;
+    aspect-ratio: 5/2;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    display: inline-block;
+    color: $link-color;
+    margin: 0 1rem 1rem;
+  }
+
+  &__line {
+    color: dimgray;
+    margin: 0 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  &__description {
+    color: dimgray;
+    margin: 0 1rem 1rem;
+  }
+
+  &__action {
+    color: $link-color;
+    border-bottom: 1px solid $link-color;
+  }
+
+  &__footer {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__views {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: dimgray;
+    font-size: 0.9rem;
+  }
+}
+
+.page_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.page_title {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.page_caption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: dimgray;
+  font-size: 0.95rem;
+}
+
+.page_banner {
+  width: 100%;
+  aspect-ratio: 5/2;
+  object-fit: cover;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form_select {
+  background: $background-color;
+  color: $foreground-color;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.pagination_container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__item {
+    border: 1px solid color.scale($background-color, $lightness: 60%);
+    margin-left: -1px;
+
+    &:first-child {
+      margin-left: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &.is-active {
+      background-color: $background-color;
+      border-color: $background-color;
+
+      .pagination__link {
+        color: $foreground-color;
+        pointer-events: none;
+      }
+    }
+
+    &.is-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      background-color: color.scale($background-color, $lightness: 60%);
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: $background-color;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: color.scale($background-color, $lightness: 60%);
+    }
+  }
+}
+
+.article_content {
+  margin-bottom: 3rem;
+}
