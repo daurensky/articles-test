@@ -1,5 +1,7 @@
 # Статьи без фреймворков
 
+![Shot 1](docs/images/screenshot.png)
+
 ## Requirements
 
 - PHP 8.1+
